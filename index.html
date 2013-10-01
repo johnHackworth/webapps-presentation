@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>taptap tech talks - webapps</title>
+
+    <meta name="author" content="Johnhackwogth">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewpogt" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Webapps</h1>
+          <h3>Como conocerlas y amarlas</h3>
+          <p>
+            <small>Created by <a href="http://github.com/johnhackwogth">Javi A.</a> / <a href="http://twitter.com/johnhackwogth">@johnhackworth</a></small>
+          </p>
+        </section>
+
+        <section>
+          <h2>Un poco de historia</h2>
+        </section>
+        <section>
+          <h3>De dónde venimos</h3>
+          <h4> Pre-2004 </h4>
+          <ul>
+            <li>Html plano</li>
+            <li>Plantillas renderizadas en servidor (java, asp, algo de php..)</li>
+            <li>AJAX? WTF?</li>
+            <li>El server manda en TODO</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Por ejemplo: </h3>
+          <img src="http://unix.rulez.org/~calver/pictures/bush_hotmail.jpg" />
+        </section>
+        <section>
+          <h3> YUI, Prototype & Dojo Toolkit </h3>
+          <h4> 2004 - 2006 </h4>
+          <ul>
+            <li>Plantillas renderizadas en servidor (java, php)</li>
+            <li>Interacción "rica" en cliente, vía javascript</li>
+            <li>Primeros intentos de 'domar' la prog. cliente (dojo)</li>
+            <li>Complicado de la hostia, incompatibilidades entre browsers</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Por ejemplo: </h3>
+          <img src="http://www.idealista.com/news/archivos/imagenes/portales/idealista-italia-home.jpg" />
+        </section>
+        <section data-background="#FCFCFC">
+          <h3 style="color: #333333;"> 2006 </h3>
+          <img src="http://www.startupsopensourced.com/wp-content/uploads/2011/06/john_resig.jpg" />
+        </section>
+        <section>
+          <h3> jQuery </h3>
+          <h4> 2006 - 2010 </h4>
+          <ul>
+            <li>Estandarización entre browsers</li>
+            <li>Eliminación de diferencias entre browsers</li>
+            <li>Consistencia entre browsers</li>
+            <li>Un sólo desarrollo para diferentes browsers</li>
+            <li>La programación en cliente como programación, no como puzzle</li>
+            <li>Sistema de plugins FÁCIL + componentes interfaz estandar</li>
+          </ul>
+        </section>
+        <section>
+          <h3> 2011 </h3>
+          <img src="http://2011.full-frontal.org/images/speakers/jeremy.jpg" />
+        </section>
+        <section>
+          <h3> Backbone, Spine, Ember, Angular, Coffeescript, Batman, blahblahblah </h3>
+          <h4> 2011+ </h4>
+          <ul>
+            <li>Incorporación de gente de servidor (AKA: Gente que sabe programar)</li>
+            <li>Aplicación de paradigmas de servidor al cliente</li>
+            <li>MVC, MVVM, etc </li>
+            <li>Lógica de presentación en cliente</li>
+            <li>Thick Client (cliente pesado)</li>
+            <li>AMD</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Anatomía de una webapp actual</h2>
+        </section>
+        <section>
+          <h3>Templates</h3>
+          <p>Plantillas renderizadas y refrescadas desde cliente. Propuestas por primera vez (hasta donde yo sé) por John Resig en http://ejohn.org/blog/javascript-micro-templating/. </p>
+          <br/>
+          <h4>Logiless</h4>
+          <p>
+            Mustache, Handlebars, Hogan
+          </p>
+          <br/>
+          <h4>Logicfull</h4>
+          <p>
+            Underscore, dot, ejs
+          </p>
+        </section>
+
+        <section>
+          <h2>Aspecto de una plantilla</h2>
+          <h3>Handlebars</h3>
+          <pre>
+            &lt;div class="entry"&gt;
+              &lt;h1&gt;{{title}}&lt;/h1&gt;
+              &lt;div class="body"&gt;
+                {{body}}
+              &lt;/div&gt;
+            &lt;/div&gt;
+          </pre>
+          <h3>Underscore</h3>
+          <pre>
+            &lt;div class="entry"&gt;
+              &lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
+              &lt;div class="body"&gt;
+                &lt;% print(body.toLowercase()) %&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          </pre>
+        </section>
+
+        <section>
+          <h2> Presentación y animaciones </h2>
+        </section>
+
+        <section>
+          <h3> CSS3 </h3>
+          <ul>
+            <li> Animaciones </li>
+            <li> Menús </li>
+            <li> Transiciones </li>
+            <li> <strong> MAGIA </strong></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2> Código </h2>
+        </section>
+
+        <section id="transitions">
+          <h3>MVC vs MVVM</m3>
+          <h4>MVC</h4>
+          <ul>
+            <li>Model - View - Controller </li>
+            <li>Separación entre datos y presentación</li>
+            <li>Más fácil para gente de back, más limpio</li>
+            <li>Backbone, Spine, Ember </li>
+          </ul>
+          <br/>
+          <br/>
+          <h4>MVVM</h4>
+          <ul>
+            <li>Model - View - Viewmodel</li>
+            <li>Datos y presentación unidos</li>
+            <li>Más fácil para gente de front</li>
+            <li>Angular, Knockout</li>
+        </section>
+
+        <section id="themes">
+          <h2>Backbone</h2>
+        </section>
+        <section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+          <h2>Qué es backbone?</h2>
+          <p>
+            Backbone es un framework MVC muy muy ligero<br/> (1500 lineas de código en total).
+          </p><p>Proporciona:
+          <ul>
+          <li> Una abstracción de la capa de persistencia de datos (una API rest)
+          </li><li> Un sistema de gestión de rutas
+          </li><li> Un sistema de herencia de clases (para modelos y controladores)
+          </li><li>Una estructura estandar (models (modelos), views (controllers), vistas (el sistema de plantillas que quiera el usuario))
+          </li></ul>
+          </p>
+        </section>
+        <section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+          <h2>Qué NO es backbone?</h2>
+          <p>
+            Para todo lo demás, Backbone es no-opionated. Es agnóstico a que sistema de plantillas se utilize, a que se use para hacer el data binding, testing, etc.
+          </p>
+          <p>
+            Las únicas dependencias 'duras' de backbone son jquery/zepto y underscore (y json2 si se quiere compatibilidad con Satán (ie < 9))
+          </p>
+        </section>
+
+        <section>
+          <h2>Ventajas y desventajas del un-opinionantismo</h2>
+          <ul>
+            <li>+ Da mucha flexibilidad al usuario y no te impone como hacer las cosas</li>
+            <li>- Obliga a tomar decisiones desde el principio, por lo que los primeros pasos pueden ser más duros </li>
+            <li>+ Mucho más adaptable al proyecto</li>
+            <li>- Necesidad de mucho boilerplate</li>
+          </ul>
+        </section>
+
+        <section>
+
+        </section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: 'night', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
