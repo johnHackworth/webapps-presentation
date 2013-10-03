@@ -221,6 +221,80 @@
         </section>
 
         <section>
+          <h3>MVC en backbone</h3>
+          <div style="
+            width:100%;
+            padding:10px;
+          ">
+            <div class="view" style="
+              padding:5px;
+              text-align:center;
+            ">
+            (L)User
+            </div>
+            <div class="connections" style="
+              padding: 10px 0;
+              width:100%;
+            ">
+              <span style="width:50px;"><span style="font-size:40px">↑</span> Output</span><span style="width:40px; margin-left:100px">Input<span style="font-size:40px">↓</span></span>
+            </div>
+            <div class="view" style="
+              background-color: #FF9966;
+              color: #333333;
+              padding:10px;
+              width:600px;
+              margin: auto;
+            ">
+            View (Templates)
+            </div>
+            <div class="connections" style="
+              padding: 10px 0;
+              width:100%;
+            ">
+              <span style="width:50px;"><span style="font-size:40px">↑</span> .html()</span><span style="width:40px; margin-left:100px">DOM events<span style="font-size:40px">↓</span></span>
+            </div>
+
+            <div class="view" style="
+              background-color: #99FF66;
+              margin-left:20px
+              color: #333333;
+              padding:10px;
+              width:600px;
+              margin: auto;
+            ">
+            Controllers (Backbone.View)
+            </div>
+            <div class="connections" style="
+              padding: 10px 0;
+              width:100%;
+            ">
+              <span style="width:50px;"><span style="font-size:40px">↑</span> model events</span><span style="width:40px; margin-left:100px">model methods<span style="font-size:40px">↓</span></span>
+            </div>
+            <div class="view" style="
+              background-color: #9966FF;
+              margin-left:20px
+              color: #333333;
+              width:600px;
+              padding:10px;
+              margin: auto;
+            ">
+            Models (Backbone.Model)
+            </div>
+            <div class="connections" style="
+              padding: 10px 0;
+              width:100%;
+            ">
+              <span style="width:50px;"><span style="font-size:40px">↑</span> AJAX  <span style="font-size:40px">↓</span></span>
+            </div>
+
+            <div class="view" style="
+              padding:5px;
+              text-align:center;
+            ">
+            Data persistence ⛁ (API REST)
+            </div>
+
+          </div>
 
         </section>
       </div>
