@@ -297,7 +297,147 @@
           </div>
 
         </section>
+
+        <section>
+          <h3> Modelos </h3>
+          <p> Modelan un recurso. Normalmente se "suscriben" (vía .url) a un punto de entrada de una API rest y consumen y persisten los datos a través de ese entry point.</p><br/><br/>
+          <h4>Propiedades importantes</h4>
+          <ul>
+            <li>.url / .url() </li>
+            <li>.get() / .set() (siempre!)</li>
+            <li>.toJSON() </li>
+            <li>.defaults (cuidado!)</li>
+            <li>.fetch() -> GET</li>
+            <li>.save() -> POST o PUT </li>
+            <li>.destroy() -> DELETE </li>
+            <li>.validate() </li>
+          </ul>
+
+        </section>
+
+        <section>
+          <h3> Un modelo de backbone </h3>
+          <pre>
+            <code class="javascript">
+              var userModel = Backbone.Model.extend({
+                defaults: {
+                  name: '',
+                  age: 0
+                },
+                initialize: function(params) {
+                  this.friends = [] // importante hacer esto así!
+                },
+                url: 'http://example.com/user/'
+              })
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h3> Colecciones </h3>
+          <p> Arrays de modelos con cierta funcionalidad propia </p>
+          <br/>
+          <ul>
+            <li>.url -> Recurso que devuelve un array de datos</li>
+            <li>.model -> Model de backbone al que castea los datos</li>
+            <li>.fetch / .toJSON / etc </li>
+            <li>No ofrece paginación (maaaaaal)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Controller (Backbone.View)</h3>
+          <p>Enlaza los datos (modelo) con lo que ve el usuario (temmplates). Escucha eventos en ambos sitios y lanza las acciones adecuadas cuando se producen </p>
+          <br/>
+          <h4>Propiedades importantes</h4>
+          <ul>
+            <li>.el -> nodo jQuery del DOM dónde se pintará la vista asociada</li>
+            <li>.render() -> Método que lanza el pintado de la vista en el DOM</li>
+            <li>.events -> Diccionario con las acciones que se lanzan cuando se producen eventos en el DOM </li>
+            <li>.model -> Instancia de un model asociada a la vista</li>
+          <ul>
+        </section>
+        <section>
+          <h3> Un ejemplo de controller </h3>
+          <pre>
+            <code class="javascript">
+              var userProfileController = Backbone.View.extend({
+                events: {
+                  "click .save": "saveUser",
+                  "change .name": "updateName"
+                },
+                template: 'http://example.com/userProfile.html',
+                initialize: function() {
+                  this.model.on('change', this.render.bind(this));
+                  this.model.fetch();
+                },
+                saveUser: function() {
+                  this.model.save();
+                },
+                updateName: function() {
+                  var userName = this.$('.name').val();
+                  this.model.set('name', userName);
+                },
+                render: function() {
+                  var userData = this.model.toJSON();
+                  var view = _.template(this.template, userData);
+                  this.$el.html(view)
+                }
+              })
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h3>Routers</h3>
+          <p>
+            Escuchan los cambios en el hash de la url y ejecutan acciones en función de ellos. También pueden usarse con urls completas, usando Push State.
+          </p>
+          <p>
+             Backbone.history.start() pone a backbone a escuchar los cambios en la url
+          </p>
+          <br/>
+        </section>
+        <section>
+          <h3> Un ejemplo de Router </h3>
+          <pre>
+            <code class="javascript">
+              var routes = Backbone.Router.extend({
+                routes: {
+                  "!/userProfile/:id": "showUserProfile"
+                  // http://example.com/#!/userProfile
+                },
+                showUserProfile: function(id) {
+                  var userModel = new userModel({id: id});
+                  var userController = new userProfileController({
+                    el: $('.profile'),
+                    model: userModel
+                  })
+                }
+              })
+
+              Backbone.history.start()
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h3>Boilerplate</h3>
+          <h4>(AKA: Cosas que hay que escribir en cada proyecto)</h4>
+          <ul>
+            <li>Data Binding</li>
+            <li>Carga de Templates & estáticos</li>
+            <li>Parent inheritance</li>
+            <li>Gestión de memoria en binds a modelos</li>
+          </ul>
+          <br/><br/>
+          <p>En principio, Marionette dará algunas de estas cosas resueltas, el resto están ya resueltas en sonata Retail</p>
+        </section>
+        <section>
+          <h3>process.end()</h1>
+          <img src="http://i.qkme.me/3orsgz.jpg"></img>
+          <h3>Preguntas?</h3>
+        </section>
       </div>
+
 
     </div>
 
